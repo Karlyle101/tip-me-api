@@ -1,0 +1,47 @@
+Connected!
+2025-10-12T21:57:12.463707074Z     _____
+2025-10-12T21:57:12.463744274Z    /  _  \ __________ _________   ____
+2025-10-12T21:57:12.463749574Z   /  /_\  \\___   /  |  \_  __ \_/ __ \
+2025-10-12T21:57:12.463752874Z  /    |    \/    /|  |  /|  | \/\  ___/
+2025-10-12T21:57:12.463756074Z  \____|__  /_____ \____/ |__|    \___  >
+2025-10-12T21:57:12.463759474Z          \/      \/                  \/
+2025-10-12T21:57:12.463762074Z  A P P   S E R V I C E   O N   L I N U X
+2025-10-12T21:57:12.463764774Z
+2025-10-12T21:57:12.463767175Z  Documentation: http://aka.ms/webapp-linux
+2025-10-12T21:57:12.463788575Z  NodeJS quickstart: https://aka.ms/node-qs
+2025-10-12T21:57:12.463790875Z  NodeJS Version : v20.19.3
+2025-10-12T21:57:12.463793275Z  Note: Any data outside '/home' is not persisted
+2025-10-12T21:57:12.463795675Z
+2025-10-12T21:57:17.755928518Z  Starting OpenBSD Secure Shell server: sshd.
+2025-10-12T21:57:17.820787054Z  WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-10-12T21:57:17.947085802Z  Updating certificates in /etc/ssl/certs...
+2025-10-12T21:57:43.088239158Z  rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2025-10-12T21:57:43.174551628Z  4 added, 0 removed; done.
+2025-10-12T21:57:43.174576028Z  Running hooks in /etc/ca-certificates/update.d...
+2025-10-12T21:57:43.193524153Z  done.
+2025-10-12T21:57:43.261024499Z  CA certificates copied and updated successfully.
+2025-10-12T21:57:43.952669165Z  Starting periodic command scheduler: cron.
+2025-10-12T21:57:44.861589683Z  Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2025-10-12T21:57:44.861621883Z  Could not find operation ID in manifest. Generating an operation id...
+2025-10-12T21:57:44.918091750Z  Build Operation ID: 976c36f1-bc01-4910-9add-013853e2778b
+2025-10-12T21:57:45.888870773Z  Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-10-12T21:57:45.908844938Z  Writing output script to '/opt/startup/startup.sh'
+2025-10-12T21:57:46.023423785Z  Running #!/bin/sh
+2025-10-12T21:57:46.023450885Z
+2025-10-12T21:57:46.023454985Z  # Enter the source directory to make sure the script runs where the user expects
+2025-10-12T21:57:46.023458485Z  cd "/home/site/wwwroot"
+2025-10-12T21:57:46.023461986Z
+2025-10-12T21:57:46.023464986Z  export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-10-12T21:57:46.023467986Z  if [ -z "$PORT" ]; then
+2025-10-12T21:57:46.023480786Z  		export PORT=8080
+2025-10-12T21:57:46.023485486Z  fi
+2025-10-12T21:57:46.023488286Z
+2025-10-12T21:57:46.033512769Z  npm start
+2025-10-12T21:57:50.999216108Z  npm info using npm@10.9.2
+2025-10-12T21:57:51.151837769Z  npm info using node@v20.19.3
+2025-10-12T21:57:58.385918183Z
+2025-10-12T21:57:58.385952983Z  > tip-me-api@1.0.0 start
+2025-10-12T21:57:58.385957383Z  > ts-node --transpile-only src/server.ts
+2025-10-12T21:57:58.385960283Z
+2025-10-12T21:57:58.565174610Z  sh: 1: ts-node: not found
+2025-10-12T22:09:55.684Z No new trace in the past 1 min(s).

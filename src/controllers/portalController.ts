@@ -38,7 +38,7 @@ export async function renderTipPortal(req: Request, res: Response) {
       Optional email (for receipt)
       <input type="email" id="fromEmail" placeholder="you@example.com" />
     </label>
-    <button type="submit">Send Tip</button>
+    <button type="submit">Send Tip :)</button>
   </form>
   <div id="result"></div>
 

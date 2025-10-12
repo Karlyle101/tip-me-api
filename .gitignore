@@ -21,4 +21,16 @@ prisma/dev.db-journal
 .DS_Store
 Thumbs.db
 
+# Azure specific
+publish-profile.xml
+*.publishsettings
+
+# Test results
+api-test-results.json
+azurelogs.txt
+
+# Temporary files
+*.tmp
+*.temp
+
 /generated/prisma

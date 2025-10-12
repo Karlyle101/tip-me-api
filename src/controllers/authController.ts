@@ -52,7 +52,6 @@ export async function login(req: Request, res: Response) {
 
 export async function me(req: Request, res: Response) {
   // populated by auth middleware
-  // @ts-ignore
   const user = req.user;
   res.json({ user });
 }

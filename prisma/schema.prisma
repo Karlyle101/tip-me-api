@@ -13,6 +13,7 @@ datasource db {
 enum Role {
   BARISTA
   CUSTOMER
+  ADMIN
 }
 
 enum TipStatus {

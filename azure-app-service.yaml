@@ -1,0 +1,33 @@
+# Azure App Service deployment configuration
+apiVersion: v1
+kind: Config
+metadata:
+  name: tip-me-api-config
+spec:
+  runtime:
+    stack: node
+    version: "18"
+  
+  build:
+    commands:
+      - npm ci
+      - npx prisma generate
+      - npm run build
+  
+  startup:
+    command: "npm start"
+  
+  environment:
+    NODE_ENV: production
+    PORT: 8000
+    
+  settings:
+    scmType: GitHub
+    alwaysOn: true
+    webSocketsEnabled: false
+    httpLoggingEnabled: true
+    detailedErrorLoggingEnabled: true
+    
+  scaling:
+    minInstances: 1
+    maxInstances: 3

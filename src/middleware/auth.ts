@@ -13,10 +13,19 @@ export async function authRequired(req: Request, res: Response, next: NextFuncti
     const payload = jwt.verify(token, config.jwtSecret) as { uid: string };
     const user = await prisma.user.findUnique({ where: { id: payload.uid } });
     if (!user) return res.status(401).json({ error: 'Invalid token' });
-    // @ts-ignore
     req.user = { id: user.id, email: user.email, name: user.name, role: user.role, handle: user.handle };
     next();
   } catch (err) {
     return res.status(401).json({ error: 'Invalid token' });
   }
+}
+
+export async function adminRequired(req: Request, res: Response, next: NextFunction) {
+  return authRequired(req, res, async () => {
+    const user = req.user;
+    if (!user || user.role !== 'ADMIN') {
+      return res.status(403).json({ error: 'Admin only' });
+    }
+    return next();
+  });
 }

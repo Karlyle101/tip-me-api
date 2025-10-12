@@ -41,15 +41,13 @@ export async function createTip(req: Request, res: Response) {
 }
 
 export async function getIncomingTips(req: Request, res: Response) {
-  // @ts-ignore
-  const user = req.user;
+  const user = req.user!;
   const tips = await prisma.tip.findMany({ where: { toUserId: user.id }, orderBy: { createdAt: 'desc' } });
   res.json({ tips });
 }
 
 export async function getOutgoingTips(req: Request, res: Response) {
-  // @ts-ignore
-  const user = req.user;
+  const user = req.user!;
   const tips = await prisma.tip.findMany({ where: { fromUserId: user.id }, orderBy: { createdAt: 'desc' } });
   res.json({ tips });
 }

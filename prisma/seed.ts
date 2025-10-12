@@ -17,6 +17,19 @@ async function main() {
       handle: 'demo-barista'
     }
   });
+
+  // Create an admin user
+  await prisma.user.upsert({
+    where: { email: 'admin@example.com' },
+    update: {},
+    create: {
+      email: 'admin@example.com',
+      passwordHash: await bcrypt.hash('adminpassword123', 10),
+      name: 'Admin',
+      role: 'ADMIN',
+      handle: 'admin'
+    }
+  });
 }
 
 main()

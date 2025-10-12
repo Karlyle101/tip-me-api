@@ -6,6 +6,9 @@ import { authRouter } from './routes/auth';
 import { usersRouter } from './routes/users';
 import { tipsRouter } from './routes/tips';
 import { qrRouter } from './routes/qr';
+import { adminRouter } from './routes/admin';
+import { portalRouter } from './routes/portal';
+import { payoutsRouter } from './routes/payouts';
 
 export function buildApp() {
   const app = express();
@@ -18,6 +21,9 @@ export function buildApp() {
   app.use('/users', usersRouter);
   app.use('/tips', tipsRouter);
   app.use('/qr', qrRouter);
+  app.use('/admin', adminRouter);
+  app.use('/portal', portalRouter);
+  app.use('/payouts', payoutsRouter);
 
   // Global error handler
   app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

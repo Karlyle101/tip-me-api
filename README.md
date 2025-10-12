@@ -4,8 +4,9 @@ Node.js API server for Tip Me — a platform for baristas and service workers to
 
 ## Features
 - User registration and login (JWT auth)
-- Roles: BARISTA and CUSTOMER
-- Unique handle per user; QR code endpoint to generate scannable codes
+- Roles: BARISTA, CUSTOMER, ADMIN
+- Anonymous tipping via a web portal (no signup required for tippers)
+- Unique handle per user; QR code endpoint generates scannable codes linking to the portal
 - Create tip intents with service fee calculation (configurable by env)
 - Incoming/outgoing tips endpoints
 - Prisma ORM with SQLite for local development
@@ -27,7 +28,7 @@ Node.js API server for Tip Me — a platform for baristas and service workers to
      - `npx prisma generate`
      - `npx prisma migrate dev --name init`
    - Optional: seed data
-     - `npm run seed`
+     - `npm run seed` (creates demo barista and admin user)
 
 4. Run the API
    - Development: `npm run dev`
@@ -40,9 +41,21 @@ Node.js API server for Tip Me — a platform for baristas and service workers to
 - GET /auth/me (Bearer token)
 - GET /users/me (Bearer token)
 - GET /qr/:handle (PNG image)
-- POST /tips { toHandle, amountCents, message?, fromEmail? }
+- GET /portal/:handle (HTML page for anonymous tipping)
+- POST /tips { toHandle, amountCents, message?, fromEmail? } (public)
 - GET /tips/incoming (Bearer token)
 - GET /tips/outgoing (Bearer token)
+
+### Admin endpoints (Bearer token, role=ADMIN)
+- GET /admin/users
+- GET /admin/tips?status=COMPLETED|PENDING|FAILED
+- PATCH /admin/tips/:id/status { status }
+- GET /admin/payouts
+- PATCH /admin/payouts/:id/status { status }
+
+### Payouts (authenticated user)
+- POST /payouts/request { amountCents }
+- GET /payouts
 
 ## Configuration
 - PORT (default 3000)

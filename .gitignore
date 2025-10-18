@@ -33,6 +33,12 @@ azurelogs.txt
 *.tmp
 *.temp
 
+# Archive files
+*.zip
+*.tar
+*.rar
+*.7z
+
 /generated/prisma
 azurelogs.txt
 azurelogs.txt

@@ -10,31 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  BARISTA
-  CUSTOMER
-  ADMIN
-}
-
-enum TipStatus {
-  PENDING
-  COMPLETED
-  FAILED
-}
-
-enum PayoutStatus {
-  REQUESTED
-  PROCESSING
-  PAID
-  FAILED
-}
+// SQLite doesn't support enums, using strings with constraints
 
 model User {
   id           String   @id @default(cuid())
   email        String   @unique
   passwordHash String
   name         String
-  role         Role
+  role         String   // BARISTA, CUSTOMER, ADMIN
   handle       String   @unique
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
@@ -55,7 +38,7 @@ model Tip {
   feeCents    Int
   netCents    Int
   message     String?
-  status      TipStatus @default(PENDING)
+  status      String    @default("PENDING") // PENDING, COMPLETED, FAILED
   providerRef String?
   createdAt   DateTime  @default(now())
 
@@ -69,7 +52,7 @@ model Payout {
   user        User          @relation(fields: [userId], references: [id])
   userId      String
   amountCents Int
-  status      PayoutStatus  @default(REQUESTED)
+  status      String        @default("REQUESTED") // REQUESTED, PROCESSING, PAID, FAILED
   providerRef String?
   createdAt   DateTime      @default(now())
 

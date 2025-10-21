@@ -9,7 +9,7 @@ const registerSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
   name: z.string().min(1),
-  role: z.enum(['BARISTA', 'CUSTOMER']).default('CUSTOMER'),
+  role: z.enum(['BARISTA', 'CUSTOMER', 'ADMIN']).default('CUSTOMER'),
   handle: z.string().min(3).max(32).regex(/^[a-z0-9\-_]+$/i)
 });
 
